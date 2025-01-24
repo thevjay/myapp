@@ -27,6 +27,19 @@ app.listen(port, () => {
     console.log(`Server started on port ${port}`);
 });
 
+const { createServer } = require('@vercel/node');
+
+module.exports = createServer((req, res) => {
+  if (req.url === '/api/hello' && req.method === 'GET') {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify({ message: 'Hello, world!' }));
+  } else {
+    res.statusCode = 404;
+    res.end();
+  }
+});
+
 module.exports = (req, res) => {
     res.status(200).send("Server is running!");
 };
