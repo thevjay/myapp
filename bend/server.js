@@ -26,3 +26,7 @@ connectToDB()
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
 });
+
+module.exports = (req, res) => {
+    res.status(200).send("Server is running!");
+};
