@@ -22,7 +22,7 @@ function Register() {
       console.log(response?.data?.message);
       navigate('/login');
     } catch (err) {
-      console.error('Registration failed:', err?.response?.data);
+      console.error('Registration failed:', err);
     }
   };
 
