@@ -40,6 +40,8 @@ module.exports = createServer((req, res) => {
   }
 });
 
+module.exports = app;
+
 module.exports = (req, res) => {
     res.status(200).send("Server is running!");
 };
