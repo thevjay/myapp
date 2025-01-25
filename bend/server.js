@@ -11,10 +11,7 @@ const port = process.env.PORT || 4000
 
 // middleware
 
-app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: true
-}))
+app.use(cors({}))
 
 // coonnect to db
 app.use(express.urlencoded({extended: true}))
