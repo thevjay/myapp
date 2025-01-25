@@ -7,7 +7,7 @@ const connectToDB = require('./database/db')
 const router = require('./routes/Auth')
 const cookieParser = require('cookie-parser')
 
-const port = process.env.PORT
+const port = process.env.PORT || 4000
 
 // middleware
 
@@ -27,18 +27,6 @@ app.listen(port, () => {
     console.log(`Server started on port ${port}`);
 });
 
-const { createServer } = require('@vercel/node');
-
-module.exports = createServer((req, res) => {
-  if (req.url === '/api/hello' && req.method === 'GET') {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ message: 'Hello, world!' }));
-  } else {
-    res.statusCode = 404;
-    res.end();
-  }
-});
 
 module.exports = app;
 
