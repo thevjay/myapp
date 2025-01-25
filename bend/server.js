@@ -10,8 +10,13 @@ const cookieParser = require('cookie-parser')
 const port = process.env.PORT || 4000
 
 // middleware
-
-app.use(cors({}))
+// CORS Configuration
+const corsOptions = {
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000', // Use the value from .env
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow these methods
+  credentials: true, // Allow cookies
+};
+app.use(cors(corsOptions))
 
 // coonnect to db
 app.use(express.urlencoded({extended: true}))

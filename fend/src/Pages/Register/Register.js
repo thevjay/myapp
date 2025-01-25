@@ -17,6 +17,12 @@ function Register() {
           username,
           email,
           password,
+        },
+        {
+          withCredentials:true,
+          headers: {
+            'Content-Type': 'application/json',
+        },
         }
       );
       console.log(response?.data?.message);
